@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
-
 def call(String yamlName) {
+    System.print("------>"+yamlName)
     sshDeploy(yamlName, false)
 }
 
