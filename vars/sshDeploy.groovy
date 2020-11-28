@@ -64,7 +64,6 @@ def call(yaml, boolean dryRun) {
                         } else {
                             remote.user = userName
                             remote.password = password
-                            isSudo = true
                         }
 
                         // For now we are settings host checking off.
