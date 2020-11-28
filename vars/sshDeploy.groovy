@@ -1,6 +1,5 @@
 #!/usr/bin/groovy
 def call(String yamlName) {
-    System.print("------>"+yamlName)
     sshDeploy(yamlName, false)
 }
 
@@ -10,6 +9,8 @@ def call(String yamlName, boolean dryRun) {
 }
 
 def call(yaml, boolean dryRun) {
+
+    println("Entered Config..........................")
     if(!yaml.config)
         error "config missing in the given yml file."
     if(!yaml.config.credentials_id)
@@ -17,9 +18,9 @@ def call(yaml, boolean dryRun) {
 
     def failedRemotes = []
     def retriedRemotes = []
-
+    println("Entered Config..........................")
     withCredentials([usernamePassword(credentialsId: yaml.config.credentials_id, passwordVariable: 'password', usernameVariable: 'userName')]) {
-
+        println("Entered00000000 Config..........................")
         if(!userName && params.SSH_USER) {
             error "userName is null or empty, please check credentials_id."
         }
